@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 import os
 
-# Load the trained model using absolute path
-model_path = os.path.join(os.path.dirname(__file__), "rf_model.pkl")
-with open(model_path, "rb") as f:
-    model = pickle.load(f)
+# Load the trained model using joblib
+model_path = os.path.join(os.path.dirname(__file__), "rf_model.joblib")
+model = joblib.load(model_path)
 
 st.title("🧱 Margin Erosion Predictor")
 st.markdown("Fill in job details below to assess erosion risk.")
