@@ -1,4 +1,3 @@
-margin_erosion_app.py
 import streamlit as st
 import pandas as pd
 import pickle
@@ -7,7 +6,7 @@ import pickle
 with open("rf_model.pkl", "rb") as f:
     model = pickle.load(f)
 
-st.title("?? Margin Erosion Predictor")
+st.title("🧱 Margin Erosion Predictor")
 st.markdown("Fill in job details below to assess erosion risk.")
 
 # Form inputs
@@ -35,6 +34,6 @@ input_vector = [
 if st.button("Check Erosion Risk"):
     result = model.predict([input_vector])[0]
     if result == 1:
-        st.error("?? This job is at risk of margin erosion.")
+        st.error("⚠️ This job is at risk of margin erosion.")
     else:
-        st.success("? This job is within safe margin limits.")
+        st.success("✅ This job is within safe margin limits.")
